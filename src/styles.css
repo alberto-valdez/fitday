@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: rgb(83, 150, 206);
+}
+
+.form-signin{
+    padding: 10%;
+    background: rgb(210, 235, 255);
+    border-radius: 13px;
+}
+
+.form-signin h2{
+    letter-spacing: 3px;
+    font-weight: bold;
+    
+}
