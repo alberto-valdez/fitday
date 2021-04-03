@@ -15,3 +15,9 @@ body{
     font-weight: bold;
     
 }
+
+.alert-pass{
+font-size: 13px;
+text-align: center;
+color: red;
+}
