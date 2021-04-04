@@ -21,3 +21,42 @@ font-size: 13px;
 text-align: center;
 color: red;
 }
+
+.navbar-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    border: none;
+    background: white;
+}
+
+.navbar-custom ul{
+    list-style: none;
+}
+
+.navbar-custom ul li
+{
+    display: inline-block;
+    padding: 0px 20px;
+}
+.navLink{
+    text-decoration: none;
+    color: rgb(122, 120, 120);
+    
+}
+
+.navbar-custom a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar-brand-custom
+{
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    letter-spacing: 2px;
+}
+

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import {auth} from '../firebaseconfig';
 
 export default function SignUp(){
-
+    const historial = useHistory();
     const [user, setUser] = useState({
         email:'',
         pass:''
@@ -18,7 +18,7 @@ export default function SignUp(){
 
         if(checkPass == user.pass){
           
-            auth.createUserWithEmailAndPassword(user.email, user.pass).then(r=>    alert('Usuario registrado')).catch(e =>{
+            auth.createUserWithEmailAndPassword(user.email, user.pass).then(r=> {historial.push('/index')}).catch(e =>{
 
                 if(e.code == 'auth/email-already-in-use'){
                     setMsgError('El email ya esta en uso')
@@ -39,7 +39,7 @@ export default function SignUp(){
         <div className='container'>
         <div className='row d-flex justify-content-center pt-5 mt-5 mr-1'>
             <div className='col-lg-6 col-8 form-signin'>
-                <h2 className='text-center'>¡Comencemos!</h2>
+                <h2 className='text-center'>Registro</h2>
                 <form onSubmit={registrar}>
                 <div className='input-group mb-3 '>
                     <input type='email' className='form-control' onChange={(e)=>{setUser({ ...user, email : e.target.value})}} placeholder='Email' required/>

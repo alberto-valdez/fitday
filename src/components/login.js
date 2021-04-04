@@ -1,20 +1,25 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import {auth} from '../firebaseconfig';
 
 export default function Login(){
-
+    
     const [user, setUser] = useState({
         email:'',
         pass:''
     })
 
+    const [msgError, setMsgError] = useState(null)
+    const historial = useHistory();
     const loginUser = (e)=>{
         e.preventDefault();
         auth.signInWithEmailAndPassword(user.email, user.pass).then(res=>{
-
+           historial.push('/index'); 
         }).catch(err=>{
-
+         
+            if(err.code == 'auth/wrong-password' || err.code == 'user-not-found' ){
+                setMsgError('Usuario o contraseña incorrecto')
+            }
         })
 
     }
@@ -37,6 +42,10 @@ export default function Login(){
                         <p>¿no tienes cuenta? <NavLink to='/signup'>Registrame</NavLink></p>
                     </div>
                     </form>
+                    {msgError ? 
+                (<div className='d-flex justify-content-center'>{msgError}</div>)
+                :
+                (<span></span>)}
                 </div>
 
             </div>

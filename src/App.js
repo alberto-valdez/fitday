@@ -1,11 +1,16 @@
+
 import Router from "./router";
+
 import './styles.css'
 
 
-function App() {
+export default function App() { 
+
   return (
-   <Router/>
+  
+  <Router/>
+    
+ 
   );
 }
 
-export default App;
