@@ -1,4 +1,6 @@
 
+
+import DataProvider from "./context/dataContext";
 import Router from "./router";
 
 import './styles.css'
@@ -7,8 +9,11 @@ import './styles.css'
 export default function App() { 
 
   return (
-  
-  <Router/>
+    <DataProvider>
+ <Router/>
+</DataProvider>
+ 
+ 
     
  
   );
