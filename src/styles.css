@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background: rgb(83, 150, 206);
+    background: whitesmoke;
 }
 
 .form-signin{
@@ -26,7 +26,7 @@ color: red;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 30px 5%;
     border: none;
     background: white;
 }
@@ -60,3 +60,35 @@ color: red;
     letter-spacing: 2px;
 }
 
+.create-perfil{
+    background: rgb(217, 243, 217);
+    padding: 13%;
+    border-radius: 13px;
+    
+}
+
+.create-perfil span{
+    width: 90px;
+}
+
+.create-perfil label{
+    width: 90px;
+}
+
+.card{
+    width: 33rem;
+    border-radius: 33px;
+    box-shadow: 1px 10px 13px 1px rgba(0, 0, 0, 0.2);
+}
+
+.card img{
+    border-radius: 50%;
+    width: auto;
+    max-width: 200px;
+    height: auto;
+    box-shadow: 1px 10px 13px 1px rgba(0, 0, 0, 0.2);
+}
+.datos-perfil{
+    font-weight: bold;
+    margin-bottom: 0;
+}

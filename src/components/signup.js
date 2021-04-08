@@ -18,7 +18,7 @@ export default function SignUp(){
 
         if(checkPass == user.pass){
           
-            auth.createUserWithEmailAndPassword(user.email, user.pass).then(r=> {historial.push('/index')}).catch(e =>{
+            auth.createUserWithEmailAndPassword(user.email, user.pass).then(r=> {historial.push('/crear')}).catch(e =>{
 
                 if(e.code == 'auth/email-already-in-use'){
                     setMsgError('El email ya esta en uso')

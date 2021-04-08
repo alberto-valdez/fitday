@@ -1,5 +1,5 @@
 import firebaseStore from 'firebase/app'
-import 'firebase/firestore'
+import 'firebase/firebase-firestore'
 
 const store = firebaseStore.firestore();
 
