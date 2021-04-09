@@ -4,19 +4,9 @@ import { store } from "../firebaseStore";
 
 export default function Perfil (){
 
-    const {id} = useContext(DataContext);
-    const [perfilUser, setPerfilUser]  = useState(null);
-    console.log(id)
-    useEffect(()=>{
-        
-        store.collection('perfil').where('__name__', '==' ,`${id}`).get().then(snapshot=>{
-           console.log(snapshot.docs[0].data())
-            setPerfilUser(snapshot.docs[0].data())
-           
-        }).catch(err=>{
-            console.log(err)
-        })
-     },[id])
+    const {id, perfilUser} = useContext(DataContext);
+   
+  
 
      
 

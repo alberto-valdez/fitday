@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Index from "./components";
+import AddAlimento from "./components/addAlimentos";
+import Alimentos from "./components/alimentos";
 import CreatePerfil from "./components/createPerfil";
 import Login from "./components/login";
 import Navbar from "./components/navbar";
@@ -35,7 +37,8 @@ export default function Router(){
             <Route exact path='/index' component={Index}/>
             <Route exact path='/crear' component={CreatePerfil}/>
             <Route exact path='/perfil' component={Perfil}/>
-
+            <Route exact path='/alimentos' component={Alimentos}/>
+            <Route exact path='/addAlimento' component={AddAlimento}/>
         </Switch>
         </BrowserRouter>
      

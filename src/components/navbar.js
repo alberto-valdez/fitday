@@ -24,7 +24,7 @@ export default function Navbar(){
                     <NavLink className='navLink'  to='/peril'><FaBook/></NavLink>
                 </li>
                 <li>
-                    <NavLink className='navLink' to='/peril'><FaCookieBite/></NavLink>
+                    <NavLink className='navLink' to='/alimentos'><FaCookieBite/></NavLink>
                 </li>
                 <li>
                     <NavLink className='navLink' to='/perfil'><FaUserAlt/></NavLink>

@@ -92,3 +92,31 @@ color: red;
     font-weight: bold;
     margin-bottom: 0;
 }
+
+.buscador{
+    padding: 13%;
+}
+
+.food-list{
+    padding: 3%;
+    border-radius: 13px;
+background: whitesmoke;
+}
+
+.foodName{
+    font-weight: bold;
+}
+
+.alimento-input{
+    width: 100px;
+    border-radius: 33px;
+    border: none;
+    background: whitesmoke;
+}
+
+.alimento-input-name{
+    width: 70%;
+    border-radius: 33px;
+    border: none;
+    background: whitesmoke;
+}
