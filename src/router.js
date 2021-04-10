@@ -4,6 +4,7 @@ import Index from "./components";
 import AddAlimento from "./components/addAlimentos";
 import Alimentos from "./components/alimentos";
 import CreatePerfil from "./components/createPerfil";
+import EditAlimentos from "./components/editAlimentos";
 import Login from "./components/login";
 import Navbar from "./components/navbar";
 import Perfil from "./components/perfil";
@@ -24,7 +25,7 @@ export default function Router(){
         {usuario ? (
             <Navbar></Navbar>
         ) :(
-<span></span>
+            <span></span>
         )
 
         }
@@ -39,6 +40,7 @@ export default function Router(){
             <Route exact path='/perfil' component={Perfil}/>
             <Route exact path='/alimentos' component={Alimentos}/>
             <Route exact path='/addAlimento' component={AddAlimento}/>
+            <Route exact path='/editarAlimento/:id' component={EditAlimentos}/>
         </Switch>
         </BrowserRouter>
      

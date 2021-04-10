@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { DataContext } from "../context/dataContext"
 import { store } from "../firebaseStore";
+import Cargando from "./cargando";
 
 export default function Perfil (){
 
@@ -13,7 +14,7 @@ export default function Perfil (){
     return (
     <div>
         {!perfilUser ? (
-            <div>Cargando</div>
+            <div><Cargando/></div>
         ):(
             <div className='container-fluid'>
               

@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react"
 import { useHistory } from "react-router";
+import { NavLink } from "react-router-dom";
 import { store } from "../firebaseStore";
+import Cargando from "./cargando";
 
 
 export default function Alimentos (){
 
  const [termSearch, setTermSearch] = useState(null);
- const [foodData, setFoodData] = useState(null);
+ const [foodData, setFoodData] = useState([]);
+ const [searchData, setSearchData] = useState('');
  const historial = useHistory();
  const buscar = (e) =>{
      e.preventDefault();
 
-     console.log(foodData)
+     setSearchData(termSearch);
+     
  }
  const agregarAlimento = (e) =>{
     e.preventDefault();
@@ -29,15 +33,28 @@ export default function Alimentos (){
  },[])
 
 
- if(foodData){
+ if(foodData != undefined){
+     console.log(Object.values(foodData))
 
-    const foodMap = foodData.map((food, i = foodData.id)=>{
+    const foodMap = foodData.filter((food) =>{
+        if(searchData == ''){
+            
+            return food
+        } else if(food.nombre.toLowerCase().includes(searchData.toLowerCase())){
+            console.log(food)
+            return food
+        }
+    }).map((food, i = foodData.id)=>{
     return (    
-            <section key={i}>
+            <section key={i} className='mt-2'>
             <div className="food-list">
                 <div className='d-flex justify-content-around'>
                 <p className='text-uppercase foodName'>{food.nombre}</p>
                 <p>Kcal: {food.calorias}</p>
+                </div>
+                <div className='d-flex justify-content-center'>
+                <p className='text-uppercase foodMerch'>{food.marca}</p>
+                
                 </div>
                 <div className='d-flex justify-content-around'>
                 <p>P: {food.proteinas}</p>
@@ -46,7 +63,7 @@ export default function Alimentos (){
                 </div>
                 <hr/>
                 <div className="d-flex justify-content-center">
-                    <button className='btn '>Seleccionar</button>
+                    <NavLink  to={'/editarAlimento/'+food.id}className='btn '>Seleccionar</NavLink>
                 </div>
             </div>
         </section>
@@ -59,14 +76,21 @@ export default function Alimentos (){
             
             <div className="col-10 d-flex justify-content-center">
                 <div className='card mt-5'>  
+                <form onSubmit={buscar}>
                 <div className="input-group mb-3 buscador">
-                    <input type="text" className='form-control' placeholder='Buscar alimento' onChange={(e)=>{setTermSearch(e.target.value)}}/>
-                    <button className='btn btn-outline-secondary' type='button' onClick={buscar} >Buscar</button>
+                    
+                    <input type="text" className='form-control' placeholder='Buscar alimento' onChange={(e)=>{setTermSearch(e.target.value)}} required/>
+                    <button className='btn btn-outline-secondary' type='submit' >Buscar</button>
+                    
                     <button className='btn btn-outline-secondary' type='button' onClick={agregarAlimento} >+</button>
+                    
                 </div>
-
+                </form>
                 <div className='buscador'>
+                    <div className="box-food overflow-auto">
                     {foodMap}
+                    </div>
+                  
                 </div>
 
                 </div>
@@ -81,7 +105,7 @@ export default function Alimentos (){
     )
  } else if(!foodData){
 return(
-    <div>Cragando...</div>
+    <div><Cargando/></div>
     )
   
  } else {

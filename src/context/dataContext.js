@@ -34,7 +34,7 @@ export default function DataProvider({children}){
     useEffect(()=>{
         
         store.collection('perfil').where('__name__', '==' ,`${id}`).get().then(snapshot=>{
-           console.log('traje datos')
+    
             setPerfilUser(snapshot.docs[0].data())
            
         }).catch(err=>{

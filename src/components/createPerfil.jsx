@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import {store} from '../firebaseStore';
 import { useContext } from "react"
 import { DataContext } from "../context/dataContext"
+import Cargando from "./cargando";
 export default function CreatePerfil() {
   
     const [perfil, setPerfil] = useState({
@@ -89,7 +90,7 @@ export default function CreatePerfil() {
     }
 
     if(!usuario){
-        return <div>Cargando...</div>
+        return <div><Cargando/></div>
     } 
      
         return (

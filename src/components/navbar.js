@@ -21,7 +21,7 @@ export default function Navbar(){
             <a className='navbar-brand-custom'>Fitday</a>
             <ul>
                 <li>
-                    <NavLink className='navLink'  to='/peril'><FaBook/></NavLink>
+                    <NavLink className='navLink'  to='/index'><FaBook/></NavLink>
                 </li>
                 <li>
                     <NavLink className='navLink' to='/alimentos'><FaCookieBite/></NavLink>

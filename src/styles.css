@@ -107,6 +107,12 @@ background: whitesmoke;
     font-weight: bold;
 }
 
+.foodMerch{
+    text-align: center;
+    margin-top: 0;
+    color: gray;
+}
+
 .alimento-input{
     width: 100px;
     border-radius: 33px;
@@ -119,4 +125,11 @@ background: whitesmoke;
     border-radius: 33px;
     border: none;
     background: whitesmoke;
+}
+
+.box-food{
+    height: 100%;
+    max-height: 400px;
+    width: auto;
+
 }
