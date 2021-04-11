@@ -45,7 +45,8 @@ export default function AddAlimento() {
                 <div className="col-10 d-flex justify-content-center">
                     <div className="card mt-5 ">
                     
-                        <form className='buscador' onSubmit={Agregar}>
+                        <form className='buscador ' onSubmit={Agregar}>
+                        <div className="box-addfood overflow-auto">
                             <div className="col-12 d-flex justify-content-between">
                             <label className='mt-2'>Nombre</label>
                             <input type="text" onChange={(e) => { setAlimento({ ...alimento, nombre: e.target.value }) }} className="form-control alimento-input-name" placeholder='Nombre' required />
@@ -113,7 +114,7 @@ export default function AddAlimento() {
                             <div className="col-12 mt-3 d-flex justify-content-center">
                             <button type='submit' className='btn btn-primary btn-block'>Agregar</button>
                             </div>
-                            
+                            </div>    
                         </form>
                     </div>
                 </div>

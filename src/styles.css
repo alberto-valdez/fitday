@@ -95,6 +95,7 @@ color: red;
 
 .buscador{
     padding: 13%;
+    padding-bottom: 1%;
 }
 
 .food-list{
@@ -128,8 +129,27 @@ background: whitesmoke;
 }
 
 .box-food{
+    
     height: 100%;
-    max-height: 400px;
+    max-height: 500px;
     width: auto;
 
+}
+
+.box-addfood{
+    padding-top: 1%;
+    height: 100%;
+    max-height: 600px;
+    width: auto;
+
+}
+
+.fecha-index{
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-alimentos{
+    padding-bottom: 3%;
 }
