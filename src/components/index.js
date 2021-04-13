@@ -10,6 +10,12 @@ export default function Index(){
     const [prueba, setPrueba] = useState({state:'prueba2'});
     const [foodData, setFoodData] = useState(null);
     const [estadoPage, setEstadoPage] = useState(false);
+    const [macroViews, setMacroViews] = useState({
+        proteinas: '0',
+        carbohidratos: '0',
+        grasas: '0',
+        calorias: '0'
+    })
  
     useEffect(()=>{
        
@@ -32,6 +38,28 @@ export default function Index(){
             
     },[id, estadoPage])
    
+
+    useEffect(()=>{
+        if(foodData){
+            let kcal = 0;
+            let pro = 0;
+            let gra = 0;
+            let car = 0;
+            for(let i in foodData){
+                kcal += parseFloat(foodData[i].calorias);
+                gra += parseFloat(foodData[i].grasas);
+                pro += parseFloat(foodData[i].proteinas);
+                car += parseFloat(foodData[i].carbohidratos);
+
+            }
+           setMacroViews({
+            proteinas: pro.toFixed(2),
+            carbohidratos: car.toFixed(2),
+            grasas: gra.toFixed(2),
+            calorias: kcal.toFixed(2)
+           })
+        }
+    },[foodData])
    
 
    const eliminar = (idFood, e) =>{
@@ -113,23 +141,23 @@ if(!usuario){
                 </div>
                 <div className='col  d-flex  mt-2 justify-content-around'>
                 <div className='col'>
-                    <p className='text-center'>0</p>
+                    <p className='text-center'>{macroViews.carbohidratos}</p>
                     <hr/>
                     <p className='text-center'>Carbohidratos</p>
                 </div>
                 <div className='col'>
-                    <p className='text-center'>0</p>
+                    <p className='text-center'>{macroViews.proteinas}</p>
                      <hr/>
-                    <p className='text-center'>Proteina</p>
+                    <p className='text-center'>Proteinas</p>
                 </div>
                 <div className='col'>
-                    <p className='text-center'>0</p>
+                    <p className='text-center'>{macroViews.grasas}</p>
                      <hr/>
                     <p className='text-center'>Grasas</p>
                 </div>
     
                 <div className='col'>
-                    <p className='text-center'>0</p>
+                    <p className='text-center'>{macroViews.calorias}</p>
                      <hr/>
                     <p className='text-center'>Kcal</p>
                 </div>
@@ -177,7 +205,7 @@ if(!usuario){
             <div className='col'>
                 <p className='text-center'>0</p>
                  <hr/>
-                <p className='text-center'>Proteina</p>
+                <p className='text-center'>Proteinas</p>
             </div>
             <div className='col'>
                 <p className='text-center'>0</p>
