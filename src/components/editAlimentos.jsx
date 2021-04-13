@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { store } from "../firebaseStore";
 import Cargando from "./cargando";
-
+import { Redirect } from "react-router";
+import swal from "sweetalert";
 export default function EditAlimentos({match}){
     var id = match.params.id;
 
@@ -24,7 +25,7 @@ export default function EditAlimentos({match}){
         marca:''
 
     })
-
+    const [redirectState, setRedirectState] = useState(false);
     useEffect(()=>{
         let kcal = ( parseFloat(alimento.proteinas) * 4 ) +  ( parseFloat(alimento.carbohidratos) * 4 ) + ( parseFloat(alimento.grasas) * 9 )
         setAlimento({...alimento, calorias: kcal.toString()})
@@ -42,12 +43,21 @@ export default function EditAlimentos({match}){
     const Agregar = async (e)=>{
         e.preventDefault();
         store.collection('alimentos').doc(`${id}`).update(alimento).then(res=>{
-            console.log('Editado')
+            swal('Se ha editado alimento',{
+                icon:'success',
+            })
+            setRedirectState(true)    
         }).catch(err=>{
-            console.log(err)
+            swal('Hubo un error al editar alimento',{
+                icon:'warning',
+            })
         })
     }
-
+    if(redirectState){
+        return (
+            <Redirect to='/alimentos'/>
+        )
+    }
    if(alimento){
     return (
         <div>

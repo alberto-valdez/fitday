@@ -10,7 +10,23 @@ export default function DataProvider({children}){
     const [usuario, setUsuario] = useState(null);
     const [id, setId] = useState(null)
     const [perfilUser, setPerfilUser]  = useState(null);
-    
+    const [fechaMenu, setFechaMenu] = useState('');
+    const [fechaToGet, setFechaToGet] = useState('');
+    const fechaSinFormato = new Date();
+    let months = [
+        'Enero',
+        'Febrero',
+        'Marzo',
+        'Abril',
+        'Mayo',
+        'Junio',
+        'Julio',
+        'Agosto',
+        'Septiembre',
+        'Octubre',
+        'Noviembre',
+        'Diciembre'
+    ]
     useEffect(()=>{
         auth.onAuthStateChanged((user)=>{
             if(user){
@@ -42,6 +58,23 @@ export default function DataProvider({children}){
         })
      },[id])
 
+
+   
+
+    useEffect(()=>{
+        function makeDate(){
+            let dia = fechaSinFormato.getDate();
+            let mesIndex = fechaSinFormato.getMonth()
+            let mes = months[mesIndex];
+            let anio = fechaSinFormato.getFullYear()
+            var formato = dia.toString()+ ' ' +  mes + ' ' + anio.toString() 
+           setFechaToGet(formato.replace(/ /g, ""))
+           setFechaMenu(formato)
+           
+        }
+        makeDate()
+
+    },[usuario])
     
     return(
         <DataContext.Provider value={
@@ -49,7 +82,9 @@ export default function DataProvider({children}){
             setUsuario,
             id, 
             perfilUser,
-            setId
+            setId,
+            fechaMenu,
+            fechaToGet
             }
             }>
             { children }

@@ -3,6 +3,9 @@ import {store} from '../firebaseStore';
 import { useContext } from "react"
 import { DataContext } from "../context/dataContext"
 import Cargando from "./cargando";
+import { Redirect } from "react-router";
+
+import swal from "sweetalert";
 export default function CreatePerfil() {
   
     const [perfil, setPerfil] = useState({
@@ -17,7 +20,7 @@ export default function CreatePerfil() {
     });
     const {usuario, id} = useContext(DataContext);
     const [activdad, setActvidad] = useState(null);
-    
+    const [redirectState, setRedirectState] = useState(false);
     useEffect(()=>{
         
       console.log('este es el id: '+id)
@@ -82,12 +85,28 @@ export default function CreatePerfil() {
         try{
            // collection().add(perfil
              const data = await store.doc(`/perfil/${id}`).set(perfil)
-          console.log(perfil)
+            if(data){
+                swal('Se ha creado el perfil',{
+                    icon:'success',
+                })
+                setRedirectState(true)
+                
+            }
+
 
         } catch(err){
-            console.log(err)
+            swal('No se pudo crear perfil',{
+                icon:'warning',
+            })
         }
     }
+
+    if(redirectState){
+        return(
+            <Redirect to='/index'/>
+        )
+    }
+
 
     if(!usuario){
         return <div><Cargando/></div>

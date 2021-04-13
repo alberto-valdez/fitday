@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { store } from "../firebaseStore"
 
+import swal from "sweetalert";
+import { Redirect } from "react-router";
 
 
 export default function AddAlimento() {
@@ -23,7 +25,7 @@ export default function AddAlimento() {
 
     })
 
-
+    const [redirectState, setRedirectState] = useState(false);
     useEffect(()=>{
         let kcal = ( parseFloat(alimento.proteinas) * 4 ) +  ( parseFloat(alimento.carbohidratos) * 4 ) + ( parseFloat(alimento.grasas) * 9 )
         setAlimento({...alimento, calorias: kcal.toString()})
@@ -34,10 +36,30 @@ export default function AddAlimento() {
         e.preventDefault();
         try{    
             const saveFood = await store.collection('alimentos').add(alimento)
+            if(saveFood){
+                swal('Se ha agregado alimento',{
+                    icon:'success',
+                })
+                setRedirectState(true)    
+            
+            }
         }catch(err){
-            console.log(err)
+            swal('Hubo un error al agregar alimento',{
+                icon:'warning',
+            })
+        
+            
         }
+        }
+    
+
+    if(redirectState){
+        return (
+            <Redirect to='/alimentos'/>
+        )
     }
+
+
     return (
         <div>
 

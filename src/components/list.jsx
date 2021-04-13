@@ -5,7 +5,7 @@ import { store } from "../firebaseStore";
 import Cargando from "./cargando";
 
 
-export default function Alimentos (){
+export default function Lista(){
 
  const [termSearch, setTermSearch] = useState(null);
  const [foodData, setFoodData] = useState([]);
@@ -62,7 +62,7 @@ export default function Alimentos (){
                 </div>
                 <hr/>
                 <div className="d-flex justify-content-center">
-                    <NavLink  to={'/editarAlimento/'+food.id}className='btn '>Seleccionar</NavLink>
+                    <NavLink  to={'/lista/add/'+food.id}className='btn '>Seleccionar</NavLink>
                 </div>
             </div>
         </section>

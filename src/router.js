@@ -9,9 +9,11 @@ import Login from "./components/login";
 import Navbar from "./components/navbar";
 import Perfil from "./components/perfil";
 import SignUp from "./components/signup";
+import Lista from "./components/list";
 import DataProvider, { DataContext } from "./context/dataContext";
 
 import { auth } from "./firebaseconfig";
+import Add from "./components/add";
 
 
 export default function Router(){
@@ -41,6 +43,8 @@ export default function Router(){
             <Route exact path='/alimentos' component={Alimentos}/>
             <Route exact path='/addAlimento' component={AddAlimento}/>
             <Route exact path='/editarAlimento/:id' component={EditAlimentos}/>
+            <Route exact path='/lista' component={Lista}/>
+            <Route exact path='/lista/add/:id' component={Add}/>
         </Switch>
         </BrowserRouter>
      
