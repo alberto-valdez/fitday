@@ -14,6 +14,7 @@ import DataProvider, { DataContext } from "./context/dataContext";
 
 import { auth } from "./firebaseconfig";
 import Add from "./components/add";
+import Footer from "./components/footer";
 
 
 export default function Router(){
@@ -21,7 +22,7 @@ export default function Router(){
    
   
     return(
-
+<div className='wrap-content'>
        
         <BrowserRouter>
         {usuario ? (
@@ -46,7 +47,10 @@ export default function Router(){
             <Route exact path='/lista' component={Lista}/>
             <Route exact path='/lista/add/:id' component={Add}/>
         </Switch>
+
+        <Footer></Footer>
         </BrowserRouter>
      
+        </div>
     )
 }

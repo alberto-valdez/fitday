@@ -22,11 +22,12 @@ text-align: center;
 color: red;
 }
 
+
 .navbar-custom {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 30px 5%;
+    padding: 30px ;
     border: none;
     background: white;
 }
@@ -41,19 +42,28 @@ color: red;
     padding: 0px 20px;
 }
 .navLink{
+
     text-decoration: none;
-    color: rgb(122, 120, 120);
+    color: black;
     
 }
 
 .navbar-custom a{
     text-decoration: none;
     cursor: pointer;
+    transition: .5s;
+}
+
+.navbar-custom ul{
+    padding-top: 10px;
+}
+.navbar-custom a:hover{
+  color: rgb(100, 100, 100);
 }
 
 .navbar-brand-custom
 {
-    font-size: large;
+    font-size: 30px;
     font-weight: bold;
     cursor: pointer;
     color: black;
@@ -152,4 +162,24 @@ background: whitesmoke;
 
 .btn-alimentos{
     padding-bottom: 3%;
+}
+
+.main-nav-active{
+    color:#F2AA4CFF;
+}
+
+
+.footerinfo{
+    margin-top: 5%;
+    padding: 50px;
+    border: none;
+    background: white;
+}
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrap-content{
+    flex: 1;
 }

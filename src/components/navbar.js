@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { FaUserAlt, FaBook, FaCookieBite } from "react-icons/fa";
+import { FaUserAlt, FaCalculator, FaCookieBite } from "react-icons/fa";
 import { NavLink, useHistory } from "react-router-dom";
 import { DataContext } from "../context/dataContext";
 import { auth } from "../firebaseconfig";
-
+import { IconContext } from "react-icons";
 export default function Navbar(){
     const history = useHistory();
     const {setId} = useContext(DataContext)
@@ -18,20 +18,32 @@ export default function Navbar(){
         return(
         <div className='col-12'>
         <nav className='navbar-custom'>
-            <a className='navbar-brand-custom'>Fitday</a>
+            <a className='navbar-brand-custom'>Lateapp</a>
             <ul>
                 <li>
-                    <NavLink className='navLink'  to='/index'><FaBook/></NavLink>
+                    <NavLink activeClassName='main-nav-active' className='navLink'  to='/index'>
+                        <IconContext.Provider value={{ size:20 }}>
+                        <FaCalculator/>
+                        </IconContext.Provider>    
+                    </NavLink>
                 </li>
                 <li>
-                    <NavLink className='navLink' to='/alimentos'><FaCookieBite/></NavLink>
+                    <NavLink activeClassName='main-nav-active' className='navLink' to='/alimentos'>
+                    <IconContext.Provider value={{ size:20 }}>
+                    <FaCookieBite/>
+                        </IconContext.Provider>    
+                        
+                        </NavLink>
                 </li>
                 <li>
-                    <NavLink className='navLink' to='/perfil'><FaUserAlt/></NavLink>
+                    <NavLink activeClassName='main-nav-active' className='navLink' to='/perfil'>
+                        
+                    <IconContext.Provider value={{ size:20 }}>
+                        <FaUserAlt/>
+                        </IconContext.Provider>    
+                    </NavLink>
                 </li>
-                <li>
-                    <a onClick={logOut}>LogOut</a>
-                </li>
+               
             
                 
             </ul>

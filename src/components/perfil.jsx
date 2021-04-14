@@ -20,7 +20,7 @@ export default function Perfil (){
               
             <div className='row'>
 
-                <div className="col-10  d-flex justify-content-center">
+                <div className="col-12  d-flex justify-content-center">
                     <div className="card mt-5">
             <div className="col d-flex justify-content-center mt-5">
             <img className='  d-flex justify-content-center' src="https://www.hotfootdesign.co.uk/wp-content/uploads/2016/05/d5jA8OZv.jpg" alt=""/>
@@ -40,10 +40,7 @@ export default function Perfil (){
                     </div>
                 </div>
 
-                <div className="col-2">
-                    <h1>Banner</h1>
-                </div>
-
+        
 
 
 

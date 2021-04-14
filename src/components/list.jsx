@@ -73,7 +73,7 @@ export default function Lista(){
         <div>
         <div className="row">
             
-            <div className="col-10 d-flex justify-content-center">
+            <div className="col-12 d-flex justify-content-center">
                 <div className='card mt-5'>  
                 <form onSubmit={buscar}>
                 <div className="input-group mb-3 buscador">
@@ -94,9 +94,7 @@ export default function Lista(){
 
                 </div>
             </div>
-            <div className="col-2">
-                banner
-            </div>
+       
 
         </div>    
             
@@ -112,7 +110,7 @@ return(
         <div>
         <div className="row">
             
-            <div className="col-10 d-flex justify-content-center">
+            <div className="col-12 d-flex justify-content-center">
                 <div className='card mt-5'>  
                 <div className="input-group mb-3 buscador">
                     <input type="text" className='form-control' placeholder='Buscar alimento' onChange={(e)=>{setTermSearch(e.target.value)}}/>
@@ -125,9 +123,7 @@ return(
     
                 </div>
             </div>
-            <div className="col-2">
-                banner
-            </div>
+           
     
         </div>    
             

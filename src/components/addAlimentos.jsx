@@ -64,7 +64,7 @@ export default function AddAlimento() {
         <div>
 
             <div className="row">
-                <div className="col-10 d-flex justify-content-center">
+                <div className="col-12 d-flex justify-content-center">
                     <div className="card mt-5 ">
                     
                         <form className='buscador ' onSubmit={Agregar}>
@@ -140,7 +140,7 @@ export default function AddAlimento() {
                         </form>
                     </div>
                 </div>
-                <div className="col-2">banner</div>
+         
             </div>
 
         </div>

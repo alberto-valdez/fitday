@@ -129,11 +129,11 @@ if(!usuario){
     return( <div>
 
         <div className="row">
-            <div className="col-10 d-flex justify-content-center">
+            <div className="col-lg-12 d-flex justify-content-center">
                 <div className="card mt-5 ">
                 <div className='col  d-flex  mt-5 justify-content-around'>
                     <p className='fecha-index'>{fechaMenu}</p>
-                    <a>Historial</a>
+                   
                 </div>
                 <hr/>
                 <div className='col  d-flex  mt-1 justify-content-center'>
@@ -175,7 +175,7 @@ if(!usuario){
                 </div>
                 </div>
             </div>
-            <div className="col-2">banner</div>
+          
         </div>
     
     </div>
@@ -186,11 +186,11 @@ if(!usuario){
     <div>
 
     <div className="row">
-        <div className="col-10 d-flex justify-content-center">
+        <div className="col-lg-12   d-flex justify-content-center">
             <div className="card mt-5 ">
             <div className='col  d-flex  mt-5 justify-content-around'>
                 <p className='fecha-index'>{fechaMenu}</p>
-                <a>Historial</a>
+               
             </div>
             <hr/>
             <div className='col  d-flex  mt-1 justify-content-center'>
@@ -236,7 +236,7 @@ if(!usuario){
             </div>
             </div>
         </div>
-        <div className="col-2">banner</div>
+       
     </div>
 
 </div>
