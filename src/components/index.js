@@ -6,10 +6,10 @@ import { NavLink } from "react-router-dom";
 import swal from 'sweetalert';
 export default function Index(){
 
-    const {usuario, id, fechaMenu, fechaToGet} = useContext(DataContext);
+    const {usuario, id, fechaMenu, fechaToGet, foodData,estadoPage, setEstadoPage} = useContext(DataContext);
     const [prueba, setPrueba] = useState({state:'prueba2'});
-    const [foodData, setFoodData] = useState(null);
-    const [estadoPage, setEstadoPage] = useState(false);
+   
+    
     const [macroViews, setMacroViews] = useState({
         proteinas: '0',
         carbohidratos: '0',
@@ -17,26 +17,6 @@ export default function Index(){
         calorias: '0'
     })
  
-    useEffect(()=>{
-       
-
-        if(fechaToGet != '' && id != null){
-            store.collection('menu').doc(`${id}`).collection(`${fechaToGet}`).get().then(snapshot=>{
-                const getData = [];
-                snapshot.forEach((doc)=>getData.push({...doc.data(), id: doc.id}));
-               if(getData.length <= 0){
-                 setFoodData(null)
-               } else {
-                setFoodData(getData)
-
-               }
-             })
-        }
-
-     
-      
-            
-    },[id, estadoPage])
    
 
     useEffect(()=>{

@@ -11,7 +11,11 @@ export default function DataProvider({children}){
     const [id, setId] = useState(null)
     const [perfilUser, setPerfilUser]  = useState(null);
     const [fechaMenu, setFechaMenu] = useState('');
+    const [foodData, setFoodData] = useState(null);
+    const [foodDataList, setfoodDataList] = useState([]);
+    const [estadoList, setEstadoList] = useState(false);
     const [fechaToGet, setFechaToGet] = useState('');
+    const [estadoPage, setEstadoPage] = useState(false);
     const fechaSinFormato = new Date();
     let months = [
         'Enero',
@@ -75,7 +79,36 @@ export default function DataProvider({children}){
         makeDate()
 
     },[usuario])
-    
+
+    useEffect(()=>{
+       
+
+        if(fechaToGet != '' && id != null){
+            store.collection('menu').doc(`${id}`).collection(`${fechaToGet}`).get().then(snapshot=>{
+                const getData = [];
+                snapshot.forEach((doc)=>getData.push({...doc.data(), id: doc.id}));
+               if(getData.length <= 0){
+                 setFoodData(null)
+               } else {
+                setFoodData(getData)
+
+               }
+             })
+        }
+
+     
+      
+            
+    },[id,estadoPage ])
+   
+    useEffect(()=>{
+        store.collection('alimentos').get().then(snapshot=>{
+            const postData = [];
+            snapshot.forEach((doc)=> postData.push({...doc.data(), id: doc.id}));
+            
+            setfoodDataList(postData);
+        })
+     },[id, estadoList])
     return(
         <DataContext.Provider value={
             {usuario,
@@ -84,7 +117,13 @@ export default function DataProvider({children}){
             perfilUser,
             setId,
             fechaMenu,
-            fechaToGet
+            fechaToGet,
+            foodData,
+            estadoPage,
+            setEstadoPage,
+            foodDataList,
+            estadoList,
+            setEstadoList
             }
             }>
             { children }

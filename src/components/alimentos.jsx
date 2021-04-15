@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useHistory } from "react-router";
 import { NavLink } from "react-router-dom";
+import { DataContext } from "../context/dataContext";
 import { store } from "../firebaseStore";
 import Cargando from "./cargando";
 
 
 export default function Alimentos (){
-
+const {foodDataList} = useContext(DataContext)
  const [termSearch, setTermSearch] = useState(null);
- const [foodData, setFoodData] = useState([]);
+ 
  const [searchData, setSearchData] = useState('');
  const historial = useHistory();
  const buscar = (e) =>{
@@ -23,19 +24,12 @@ export default function Alimentos (){
    
 }
 
- useEffect(()=>{
-    store.collection('alimentos').get().then(snapshot=>{
-        const postData = [];
-        snapshot.forEach((doc)=> postData.push({...doc.data(), id: doc.id}));
-        
-        setFoodData(postData);
-    })
- },[])
 
 
- if(foodData != undefined){
+
+ if(foodDataList != undefined){
   
-    const foodMap = foodData.filter((food) =>{
+    const foodMap = foodDataList.filter((food) =>{
         if(searchData == ''){
             
             return food
@@ -43,7 +37,7 @@ export default function Alimentos (){
             console.log(food)
             return food
         }
-    }).map((food, i = foodData.id)=>{
+    }).map((food, i = foodDataList.id)=>{
     return (    
             <section key={i} className='mt-2'>
             <div className="food-list">
@@ -100,7 +94,7 @@ export default function Alimentos (){
             
         </div>
     )
- } else if(!foodData){
+ } else if(!foodDataList){
 return(
     <div><Cargando/></div>
     )

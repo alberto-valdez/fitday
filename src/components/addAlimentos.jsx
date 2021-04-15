@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { store } from "../firebaseStore"
 
 import swal from "sweetalert";
 import { Redirect } from "react-router";
+import { DataContext } from "../context/dataContext";
 
 
 export default function AddAlimento() {
+
+    const {estadoList, setEstadoList} = useContext(DataContext)
     const [alimento, setAlimento] = useState({
         azucar: '0',
         calorias: '0',
@@ -40,6 +43,7 @@ export default function AddAlimento() {
                 swal('Se ha agregado alimento',{
                     icon:'success',
                 })
+                setEstadoList(!estadoList)
                 setRedirectState(true)    
             
             }
