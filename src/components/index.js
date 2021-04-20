@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import swal from 'sweetalert';
 export default function Index(){
 
-    const {usuario, id, fechaMenu, fechaToGet, foodData,estadoPage, setEstadoPage} = useContext(DataContext);
+    const {usuario, id, fechaMenu, fechaToGet,perfilUser, foodData,estadoPage, setEstadoPage, getMenuCollection} = useContext(DataContext);
     const [prueba, setPrueba] = useState({state:'prueba2'});
    
     
@@ -56,7 +56,7 @@ export default function Index(){
                 swal('Alimento eliminado',{
                     icon:'success',
                 })
-                setEstadoPage(!estadoPage)
+                getMenuCollection()
              }).catch((error)=>{   
                  console.log(error);
                  swal('Algo salió mal',{
@@ -117,7 +117,7 @@ if(!usuario){
                 </div>
                 <hr/>
                 <div className='col  d-flex  mt-1 justify-content-center'>
-                    <h6>Meta: 1890 Kcal</h6>
+                    <h6>Meta: {perfilUser.kcalMeta} Kcal</h6>
                 </div>
                 <div className='col  d-flex  mt-2 justify-content-around'>
                 <div className='col'>
@@ -174,7 +174,14 @@ if(!usuario){
             </div>
             <hr/>
             <div className='col  d-flex  mt-1 justify-content-center'>
-                <h6>Meta: 1890 Kcal</h6>
+
+                { !perfilUser ? (
+                    <h6>Cargando...</h6>
+                ) : (
+                    <h6>Meta: {perfilUser.kcalMeta} Kcal</h6>
+                )
+                }
+                
             </div>
             <div className='col  d-flex  mt-2 justify-content-around'>
             <div className='col'>

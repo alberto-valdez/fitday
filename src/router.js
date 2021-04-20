@@ -15,6 +15,7 @@ import DataProvider, { DataContext } from "./context/dataContext";
 import { auth } from "./firebaseconfig";
 import Add from "./components/add";
 import Footer from "./components/footer";
+import DoppioInfo from "./components/info/doppio";
 
 
 export default function Router(){
@@ -37,6 +38,7 @@ export default function Router(){
         
         <Switch>
             <Route  exact path='/login' component={Login}/>
+            <Route  exact path='/infodoppio' component={DoppioInfo}/>
             <Route  exact path='/signup' component={SignUp}/>
             <Route exact path='/index' component={Index}/>
             <Route exact path='/crear' component={CreatePerfil}/>
@@ -47,8 +49,14 @@ export default function Router(){
             <Route exact path='/lista' component={Lista}/>
             <Route exact path='/lista/add/:id' component={Add}/>
         </Switch>
-
+        {usuario ? (
+           
         <Footer></Footer>
+        ) :(
+            <span></span>
+        )
+
+        }
         </BrowserRouter>
      
         </div>

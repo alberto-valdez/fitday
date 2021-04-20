@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { store } from "../firebaseStore";
 import Cargando from "./cargando";
 import { Redirect } from "react-router";
 import swal from "sweetalert";
+import { DataContext } from "../context/dataContext";
 export default function EditAlimentos({match}){
     var id = match.params.id;
 
-    
+    const { getAlimentosCollection} = useContext(DataContext);
     const [alimento, setAlimento] = useState({
         azucar: '',
         calorias: '',
@@ -46,6 +47,7 @@ export default function EditAlimentos({match}){
             swal('Se ha editado alimento',{
                 icon:'success',
             })
+            getAlimentosCollection();
             setRedirectState(true)    
         }).catch(err=>{
             swal('Hubo un error al editar alimento',{

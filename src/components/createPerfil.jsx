@@ -18,13 +18,14 @@ export default function CreatePerfil() {
         basal:'',
         kcalMeta:''
     });
-    const {usuario, id} = useContext(DataContext);
+    const {usuario, id, perfilUser, getPerfilUser} = useContext(DataContext);
     const [activdad, setActvidad] = useState(null);
     const [redirectState, setRedirectState] = useState(false);
     useEffect(()=>{
-        
-      console.log('este es el id: '+id)
-    },[]) 
+      if(perfilUser){
+          setPerfil(perfilUser);
+      }
+    },[perfilUser]) 
     
     useEffect(()=>{
         
@@ -89,6 +90,7 @@ export default function CreatePerfil() {
                 swal('Se ha creado el perfil',{
                     icon:'success',
                 })
+                getPerfilUser();
                 setRedirectState(true)
                 
             }
@@ -99,6 +101,22 @@ export default function CreatePerfil() {
                 icon:'warning',
             })
         }
+    }
+    const updatePerfil = () =>{
+       
+  
+        store.doc(`/perfil/${id}`).update(perfil).then(data=>{
+            swal('Se ha editado el perfil',{
+                icon:'success',
+            })
+            getPerfilUser();
+            setRedirectState(true)
+        }).catch(err =>{
+            swal('No se pudo crear perfil',{
+                icon:'warning',
+            })
+        })
+        
     }
 
     if(redirectState){
@@ -116,35 +134,30 @@ export default function CreatePerfil() {
             <div className='container'>
     
                 <div className="row d-flex justify-content-center mt-5">
-                    <div className="col-8 create-perfil">
+                    <div className="col-8 card">
                         <form onSubmit={savePerfil}>
-                            <div className='row'>
+                            <div className='row buscador login-arreglos' >
     
-                            <div className="input-group mb-3">
-                            <span className="input-group-text" id="inputGroup-sizing-default">Nombre</span>
-                            <input type="text" onChange={(e)=>{setPerfil({...perfil, nombre: e.target.value})}}  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" className="form-control" placeholder="Ingresa Nombre" required/>
+                            <div className="col-12 d-flex justify-content-between mb-3">
+                            <label className='mt-2'>Nombre</label>
+                            <input defaultValue={perfilUser.nombre} type="text" onChange={(e)=>{setPerfil({...perfil, nombre: e.target.value})}}  className="form-control alimento-input-name" placeholder='' required />
                             </div>
-    
-                            <div className="input-group mb-3">
-                            <span className="input-group-text" id="inputGroup-sizing-default">Edad</span>
-                            <input type="number" onChange={(e)=>{setPerfil({...perfil, edad: e.target.value})}} className="form-control" placeholder="Ingresa Edad"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required/>    
-                           </div>
-    
-    
-                           <div className="input-group mb-3">
-                            <span className="input-group-text" id="inputGroup-sizing-default">Estatura</span>
-                            <input type="number" onChange={(e)=>{setPerfil({...perfil, estatura: e.target.value})}} className="form-control" placeholder="Ingresa Estatura" required/>
-                           </div>
-    
-                           <div className="input-group mb-3">
-                            <span className="input-group-text" id="inputGroup-sizing-default">Peso</span>
-                            <input type="number" onChange={(e)=>{setPerfil({...perfil, peso: e.target.value})}} className="form-control" placeholder="Ingresa Peso" required/>
-                            
-                           </div>
-                           
+
+                            <div className="col-12 d-flex justify-content-between mb-3">
+                            <label className='mt-2'>Edad</label>
+                            <input defaultValue={perfilUser.edad} type="text"  onChange={(e)=>{setPerfil({...perfil, edad: e.target.value})}}  className="form-control alimento-input-name" placeholder='' required />
+                            </div>
+                            <div className="col-12 d-flex justify-content-between mb-3">
+                            <label className='mt-2'>Estatura</label>
+                            <input defaultValue={perfilUser.estatura} type="text" onChange={(e)=>{setPerfil({...perfil, estatura: e.target.value})}} className="form-control alimento-input-name" placeholder='' required />
+                            </div>
+                            <div className="col-12 d-flex justify-content-between mb-3">
+                            <label className='mt-2'>Peso</label>
+                            <input defaultValue={perfilUser.peso} type="text" onChange={(e)=>{setPerfil({...perfil, peso: e.target.value})}} className="form-control alimento-input-name" placeholder='' required />
+                            </div>
                           
                             <div className="input-group mb-3">
-                           <select  className='form-control' id="inputGroupSelect01" defaultValue={null} onChange={(e)=>{setPerfil({...perfil, sexo: e.target.value})}} required >
+                           <select  className='form-control alimento-input' id="inputGroupSelect01" defaultValue={null} onChange={(e)=>{setPerfil({...perfil, sexo: e.target.value})}} required >
                               <option value={null} selected disabled>Seelecciona tu sexo biologico</option>
                               <option value='Hombre'>Hombre</option>
                               <option value='Mujer'>Mujer</option>
@@ -153,7 +166,7 @@ export default function CreatePerfil() {
     
                             <div className="input-group mb-3">
     
-                            <select className='form-control'  defaultValue={null}  name='meta'  onChange={(e)=>{setPerfil({...perfil, meta: e.target.value})}} required >
+                            <select className='form-control alimento-input'  defaultValue={null}  name='meta'  onChange={(e)=>{setPerfil({...perfil, meta: e.target.value})}} required >
                               <option value={null} selected disabled>Selecciona un objetivo</option>
                               <option value='1'>Subir de peso</option>
                               <option value='2'>Mantenimiento</option>
@@ -164,7 +177,7 @@ export default function CreatePerfil() {
     
                             <div className="input-group mb-3">
                            
-                            <select   className='form-control' defaultValue={null}  name='actividad' onChange={(e)=>{setActvidad( e.target.value)}} required >
+                            <select   className='form-control alimento-input' defaultValue={null}  name='actividad' onChange={(e)=>{setActvidad( e.target.value)}} required >
                               <option value={null} selected disabled>¿Que tan seguido haces ejercicio?</option>
                               <option value='1.2'>Nunca</option>
                               <option value='1.375'>De 1 a 3 días por semana</option>
@@ -175,8 +188,14 @@ export default function CreatePerfil() {
                           </select>
                             </div>
                                                 
-                            
-                          <button type='submit' className='btn btn-danger btn-block'>Crear Usuario</button>
+                            { !perfilUser ? (
+                                <button type='submit' className='btn btn-dark btn-block'>Crear Usuario</button>
+                            ): (
+                                <button onClick={updatePerfil} className='btn btn-dark btn-block'>Editar Usuario</button>
+                            )
+
+                            }
+                      
                             </div>
                         </form>
                     </div>

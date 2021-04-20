@@ -8,7 +8,7 @@ import { DataContext } from "../context/dataContext";
 
 export default function AddAlimento() {
 
-    const {estadoList, setEstadoList} = useContext(DataContext)
+    const {getAlimentosCollection} = useContext(DataContext)
     const [alimento, setAlimento] = useState({
         azucar: '0',
         calorias: '0',
@@ -43,7 +43,7 @@ export default function AddAlimento() {
                 swal('Se ha agregado alimento',{
                     icon:'success',
                 })
-                setEstadoList(!estadoList)
+                getAlimentosCollection()
                 setRedirectState(true)    
             
             }

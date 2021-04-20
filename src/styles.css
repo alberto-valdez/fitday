@@ -183,3 +183,136 @@ background: whitesmoke;
 .wrap-content{
     flex: 1;
 }
+
+.login-arreglos{
+    padding-top: 130px;
+    padding-bottom: 130px
+}
+
+.dropitems{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  position: absolute;
+  top: 130%;
+  z-index: 100;
+    background: whitesmoke;
+    padding: 13px;
+    border-radius: 13px;
+    box-shadow: 1px 10px 13px 1px rgba(0, 0, 0, 0.2);
+}
+
+.drop-url{
+    cursor: pointer;
+    color: black;
+}
+
+
+.shakeLogo{
+animation: shake  5s infinite;
+}
+
+@keyframes shake {
+
+    0%{
+        transform: translate(0);
+    }
+    20%,
+    40%,
+    60%,
+    80%{
+        transform: translate(0);
+    }
+    10%,
+    30%,
+   
+    50%{
+        transform: translate(10px);
+    }
+    70%,
+    100%{
+        transform: translate(0);
+    }
+}
+.info-dop{
+    margin-top: 13%;
+}
+.info-dop h1{
+    text-align: center;
+    font-size: 90px;
+    font-weight: bold
+}
+
+.info-dop h2{
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(97, 97, 97);
+}
+
+.info-dop-text{
+    text-align: justify;
+    padding: 3%;
+    padding-left: 16%;
+    padding-right: 16%;
+    letter-spacing: 1px;
+    font-size: 20px;
+   
+}
+
+.caratula img{
+    padding: 13%;
+   margin-left: 20%;
+}
+.words{
+    overflow: hidden;
+}
+.wrapper{
+    box-sizing: content-box;
+    height: 70px;
+    
+    display: flex;
+   justify-content: center;
+   margin-left: -1%;
+}
+.words span{
+    text-align: center;
+    display: block;
+    padding: 7px;
+    height: 100%;
+   font-weight: bold;
+    font-size: 40px;
+   
+    animation: spin_words 8s infinite;
+}
+
+@keyframes spin_words {
+    0%{
+        transform: translateY(-122%);
+    }
+    10%{
+        transform: translateY(-122%);
+    }
+    25%{
+        transform: translateY(-100%);
+    }
+    35%{
+        transform: translateY(-212%);
+    }
+    50%{
+        transform: translateY(-200%);
+    }
+    60%{
+        transform: translateY(-312%);
+    }
+    75%{
+        transform: translateY(-300%);
+    }
+    85%{
+        transform: translateY(-412%);
+    }
+    100%{
+        transform: translateY(-400%);
+    }
+    
+}

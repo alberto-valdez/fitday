@@ -38,15 +38,16 @@ export default function SignUp(){
     return( 
         <div className='container'>
         <div className='row d-flex justify-content-center pt-5 mt-5 mr-1'>
-            <div className='col-lg-6 col-8 form-signin'>
+            <div className='col-lg-6 col-8 card'>
+            <div className='buscador login-arreglos'>
                 <h2 className='text-center'>Registro</h2>
                 <form onSubmit={registrar}>
                 <div className='input-group mb-3 '>
-                    <input type='email' className='form-control' onChange={(e)=>{setUser({ ...user, email : e.target.value})}} placeholder='Email' required/>
+                    <input type='email' className='form-control  alimento-input' onChange={(e)=>{setUser({ ...user, email : e.target.value})}} placeholder='Email' required/>
                 </div>
 
                 <div className='input-group mb-3'>
-                <input type='password'  className='form-control' onChange={(e)=>{setUser({ ...user, pass : e.target.value})}} placeholder='Password' required/>   
+                <input type='password'  className='form-control  alimento-input' onChange={(e)=>{setUser({ ...user, pass : e.target.value})}} placeholder='Password' required/>   
                 </div>
                 {validation ? (
                     <div><p className='alert-pass'>¡Contraseña no coinciden!</p></div>
@@ -54,12 +55,12 @@ export default function SignUp(){
                     <span></span>
                 )}
                 <div className='input-group mb-3'>
-                <input type='password'  className='form-control' onChange={(e)=>{setCheckPass(e.target.value)}} placeholder='Confirm Password' required/>   
+                <input type='password'  className='form-control  alimento-input' onChange={(e)=>{setCheckPass(e.target.value)}} placeholder='Confirm Password' required/>   
                 </div>
 
                 <div className='input-group mb-3 d-flex justify-content-center '>
-                   <button type='submit' className='btn btn-danger btn-block'>Empezar</button>
-                   <NavLink to='/login'>Ya tengo una cuenta</NavLink>
+                   <button type='submit' className='btn btn-dark btn-block'>Empezar</button>
+                   <p>¿Ya tienes una cuenta? Inicia sesión <NavLink to='/login'>aqui.</NavLink></p>
                 </div>
                 </form>
                 {msgError ? 
@@ -67,7 +68,7 @@ export default function SignUp(){
                 :
                 (<span></span>)}
             </div>
-
+            </div>
         </div>
     </div>
     )

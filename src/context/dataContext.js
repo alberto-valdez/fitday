@@ -13,9 +13,8 @@ export default function DataProvider({children}){
     const [fechaMenu, setFechaMenu] = useState('');
     const [foodData, setFoodData] = useState(null);
     const [foodDataList, setfoodDataList] = useState([]);
-    const [estadoList, setEstadoList] = useState(false);
     const [fechaToGet, setFechaToGet] = useState('');
-    const [estadoPage, setEstadoPage] = useState(false);
+    const [estadoUsuario, setEstadoUsuario] = useState(false);
     const fechaSinFormato = new Date();
     let months = [
         'Enero',
@@ -31,6 +30,42 @@ export default function DataProvider({children}){
         'Noviembre',
         'Diciembre'
     ]
+
+  
+
+    const getPerfilUser = () =>{
+  
+        store.collection('perfil').where('__name__', '==' ,`${id}`).get().then(snapshot=>{
+    
+            setPerfilUser(snapshot.docs[0].data())
+           
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
+
+    const getMenuCollection = () =>{
+        store.collection('menu').doc(`${id}`).collection(`${fechaToGet}`).get().then(snapshot=>{
+            const getData = [];
+            snapshot.forEach((doc)=>getData.push({...doc.data(), id: doc.id}));
+           if(getData.length <= 0){
+             setFoodData(null)
+           } else {
+            setFoodData(getData)
+
+           }
+         })
+    }
+
+    const getAlimentosCollection = () => {
+        store.collection('alimentos').get().then(snapshot=>{
+            const postData = [];
+            snapshot.forEach((doc)=> postData.push({...doc.data(), id: doc.id}));
+            
+            setfoodDataList(postData);
+        })
+    }
+
     useEffect(()=>{
         auth.onAuthStateChanged((user)=>{
             if(user){
@@ -52,18 +87,11 @@ export default function DataProvider({children}){
     },[usuario])
 
     useEffect(()=>{
-        
-        store.collection('perfil').where('__name__', '==' ,`${id}`).get().then(snapshot=>{
-    
-            setPerfilUser(snapshot.docs[0].data())
-           
-        }).catch(err=>{
-            console.log(err)
-        })
+        getPerfilUser();
+        getAlimentosCollection();
      },[id])
 
 
-   
 
     useEffect(()=>{
         function makeDate(){
@@ -81,34 +109,15 @@ export default function DataProvider({children}){
     },[usuario])
 
     useEffect(()=>{
-       
-
         if(fechaToGet != '' && id != null){
-            store.collection('menu').doc(`${id}`).collection(`${fechaToGet}`).get().then(snapshot=>{
-                const getData = [];
-                snapshot.forEach((doc)=>getData.push({...doc.data(), id: doc.id}));
-               if(getData.length <= 0){
-                 setFoodData(null)
-               } else {
-                setFoodData(getData)
-
-               }
-             })
+            getMenuCollection()
         }
 
-     
-      
-            
-    },[id,estadoPage ])
+    },[id ])
    
-    useEffect(()=>{
-        store.collection('alimentos').get().then(snapshot=>{
-            const postData = [];
-            snapshot.forEach((doc)=> postData.push({...doc.data(), id: doc.id}));
-            
-            setfoodDataList(postData);
-        })
-     },[id, estadoList])
+    
+
+
     return(
         <DataContext.Provider value={
             {usuario,
@@ -119,11 +128,10 @@ export default function DataProvider({children}){
             fechaMenu,
             fechaToGet,
             foodData,
-            estadoPage,
-            setEstadoPage,
             foodDataList,
-            estadoList,
-            setEstadoList
+            getPerfilUser,
+            getAlimentosCollection,
+            getMenuCollection
             }
             }>
             { children }

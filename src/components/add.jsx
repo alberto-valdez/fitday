@@ -7,7 +7,7 @@ import Cargando from "./cargando";
 
 export default function Add({match}){
     var idFood = match.params.id;
-    const {id, fechaMenu, estadoPage, setEstadoPage} = useContext(DataContext);
+    const {id, fechaMenu, getMenuCollection} = useContext(DataContext);
     const [redirectState, setRedirectState] = useState(false);
  
     const [alimento, setAlimento] = useState({
@@ -117,7 +117,7 @@ export default function Add({match}){
         try{
             const menu = await store.collection(`/menu/${id}/${fechaMenu.replace(/ /g, "")}`).add(alimento);
             swal('Agregado', 'El alimento se agrego al menú', 'success')
-            setEstadoPage(!estadoPage)
+            getMenuCollection()
             setRedirectState(true)
          } catch(err) {  
             swal('Error', 'Hubo un error al agregar alimento', 'warning')

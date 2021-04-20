@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react"
+import { NavLink } from "react-router-dom";
 import { DataContext } from "../context/dataContext"
 import { store } from "../firebaseStore";
 import Cargando from "./cargando";
@@ -23,7 +24,7 @@ export default function Perfil (){
                 <div className="col-12  d-flex justify-content-center">
                     <div className="card mt-5">
             <div className="col d-flex justify-content-center mt-5">
-            <img className='  d-flex justify-content-center' src="https://www.hotfootdesign.co.uk/wp-content/uploads/2016/05/d5jA8OZv.jpg" alt=""/>
+            <img className='  d-flex justify-content-center' src="https://media.istockphoto.com/vectors/hamburger-junk-food-icon-vector-id928415518?b=1&k=6&m=928415518&s=612x612&w=0&h=Hjy-pIAjI9aOJE_2ir8n_Ssq-BZ5DdUQoe74OSjyeKI=" alt=""/>
             </div>
                        
                         <div className="card-body text-center">
@@ -37,6 +38,11 @@ export default function Perfil (){
                            <div className="col-12 text-center" ><p className='datos-perfil'>Gasto calorico basal</p><p>{perfilUser.basal} Kcal</p></div>
                            <div className="col-12 text-center" ><p className='datos-perfil'>Gasto calorico meta</p><p>{perfilUser.kcalMeta} Kcal</p></div>
                         </div>
+
+
+                        <div className="card-body">
+                      <NavLink to={'/crear'} className='btn btn-dark btn-block'>Editar</NavLink>
+                      </div>
                     </div>
                 </div>
 
