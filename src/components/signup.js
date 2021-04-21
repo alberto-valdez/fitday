@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { NavLink, Redirect, useHistory } from "react-router-dom";
+import { DataContext } from "../context/dataContext";
 import {auth} from '../firebaseconfig';
 
 export default function SignUp(){
@@ -11,7 +12,12 @@ export default function SignUp(){
     const [validation, setValidation] = useState(false);
     const [checkPass, setCheckPass] = useState('');
     const [msgError, setMsgError] = useState(null)
-
+    const {usuario} = useContext(DataContext);
+    if(usuario){
+           return (
+               <Redirect to='/index'/>
+           )
+       }
 
     const registrar = (e)=>{
         e.preventDefault();

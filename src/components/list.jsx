@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { useHistory } from "react-router";
 import { NavLink } from "react-router-dom";
+import ReactTooltip from "react-tooltip";
 import { DataContext } from "../context/dataContext";
 import { store } from "../firebaseStore";
 import Cargando from "./cargando";
@@ -75,8 +76,13 @@ export default function Lista(){
                     <input type="text" className='form-control' placeholder='Buscar alimento' onChange={(e)=>{setTermSearch(e.target.value)}} required/>
                     <button className='btn btn-outline-secondary' type='submit' >Buscar</button>
                     
-                    <button className='btn btn-outline-secondary' type='button' onClick={agregarAlimento} >+</button>
-                    
+                    <button className='btn btn-outline-secondary' data-tip data-for='addFood' type='button' onClick={agregarAlimento} >+</button>
+                    <ReactTooltip 
+                        id='addFood'
+                        place="bottom"
+                        effect="solid">
+                            Agregar un nuevo alimento
+                    </ReactTooltip>
                 </div>
                 </form>
                 <div className='buscador'>

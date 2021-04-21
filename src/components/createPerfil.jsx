@@ -79,28 +79,21 @@ export default function CreatePerfil() {
     },[activdad])
 
    
-    const savePerfil = async (e) =>{
+    const savePerfil =  (e) =>{
         e.preventDefault();
-  
-     
-        try{
-           // collection().add(perfil
-             const data = await store.doc(`/perfil/${id}`).set(perfil)
-            if(data){
-                swal('Se ha creado el perfil',{
-                    icon:'success',
-                })
-                getPerfilUser();
-                setRedirectState(true)
-                
-            }
-
-
-        } catch(err){
+        store.doc(`/perfil/${id}`).set(perfil).then(data=>{
+            swal('Se ha creado el perfil',{
+                icon:'success',
+            })
+            getPerfilUser();
+            setRedirectState(true)
+        }).catch(err =>{
             swal('No se pudo crear perfil',{
                 icon:'warning',
             })
-        }
+        })
+     
+        
     }
     const updatePerfil = () =>{
        
@@ -140,20 +133,20 @@ export default function CreatePerfil() {
     
                             <div className="col-12 d-flex justify-content-between mb-3">
                             <label className='mt-2'>Nombre</label>
-                            <input defaultValue={perfilUser.nombre} type="text" onChange={(e)=>{setPerfil({...perfil, nombre: e.target.value})}}  className="form-control alimento-input-name" placeholder='' required />
+                            <input defaultValue={perfil.nombre} type="text" onChange={(e)=>{setPerfil({...perfil, nombre: e.target.value})}}  className="form-control alimento-input-name" placeholder='' required />
                             </div>
 
                             <div className="col-12 d-flex justify-content-between mb-3">
                             <label className='mt-2'>Edad</label>
-                            <input defaultValue={perfilUser.edad} type="text"  onChange={(e)=>{setPerfil({...perfil, edad: e.target.value})}}  className="form-control alimento-input-name" placeholder='' required />
+                            <input defaultValue={perfil.edad} type="text"  onChange={(e)=>{setPerfil({...perfil, edad: e.target.value})}}  className="form-control alimento-input-name" placeholder='' required />
                             </div>
                             <div className="col-12 d-flex justify-content-between mb-3">
                             <label className='mt-2'>Estatura</label>
-                            <input defaultValue={perfilUser.estatura} type="text" onChange={(e)=>{setPerfil({...perfil, estatura: e.target.value})}} className="form-control alimento-input-name" placeholder='' required />
+                            <input defaultValue={perfil.estatura} type="text" onChange={(e)=>{setPerfil({...perfil, estatura: e.target.value})}} className="form-control alimento-input-name" placeholder='' required />
                             </div>
                             <div className="col-12 d-flex justify-content-between mb-3">
                             <label className='mt-2'>Peso</label>
-                            <input defaultValue={perfilUser.peso} type="text" onChange={(e)=>{setPerfil({...perfil, peso: e.target.value})}} className="form-control alimento-input-name" placeholder='' required />
+                            <input defaultValue={perfil.peso} type="text" onChange={(e)=>{setPerfil({...perfil, peso: e.target.value})}} className="form-control alimento-input-name" placeholder='' required />
                             </div>
                           
                             <div className="input-group mb-3">

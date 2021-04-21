@@ -7,8 +7,17 @@ import Cargando from "./cargando";
 export default function Perfil (){
 
     const {id, perfilUser} = useContext(DataContext);
+    const [objetivo, setObjetivo] = useState('')
    
-  
+    useEffect(()=>{
+        if(perfilUser.meta == '1'){
+            setObjetivo('Subir de peso')
+        } else if (perfilUser.meta == '3'){
+            setObjetivo('Bajar de peso')
+        } else {
+            setObjetivo('Mantenimiento')
+        }
+    },[perfilUser])
 
      
 
@@ -34,7 +43,7 @@ export default function Perfil (){
                         </div>
                         <div className="card-body">
                          
-                           <div className="col-12  text-center" ><p className='datos-perfil'>Objetivo</p><p>{perfilUser.meta}</p></div>
+                           <div className="col-12  text-center" ><p className='datos-perfil'>Objetivo</p><p>{objetivo}</p></div>
                            <div className="col-12 text-center" ><p className='datos-perfil'>Gasto calorico basal</p><p>{perfilUser.basal} Kcal</p></div>
                            <div className="col-12 text-center" ><p className='datos-perfil'>Gasto calorico meta</p><p>{perfilUser.kcalMeta} Kcal</p></div>
                         </div>

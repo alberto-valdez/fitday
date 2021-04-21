@@ -283,7 +283,7 @@ animation: shake  5s infinite;
    font-weight: bold;
     font-size: 40px;
    
-    animation: spin_words 8s infinite;
+    animation: spin_words 5s infinite;
 }
 
 @keyframes spin_words {

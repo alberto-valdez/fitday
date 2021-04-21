@@ -4,6 +4,7 @@ import { store } from "../firebaseStore";
 import Cargando from "./cargando";
 import { NavLink } from "react-router-dom";
 import swal from 'sweetalert';
+import ReactTooltip from "react-tooltip";
 export default function Index(){
 
     const {usuario, id, fechaMenu, fechaToGet,perfilUser, foodData,estadoPage, setEstadoPage, getMenuCollection} = useContext(DataContext);
@@ -117,7 +118,19 @@ if(!usuario){
                 </div>
                 <hr/>
                 <div className='col  d-flex  mt-1 justify-content-center'>
-                    <h6>Meta: {perfilUser.kcalMeta} Kcal</h6>
+                { !perfilUser ? (
+                    <h6>Cargando...</h6>
+                ) : (
+                    <h6 data-tip data-for='calorias'>{perfilUser.kcalMeta} Kcal</h6>
+                )
+                }
+                 
+                    <ReactTooltip 
+                        id='calorias'
+                        place="bottom"
+                        effect="solid">
+                            Calorias que debes consumir
+                    </ReactTooltip>
                 </div>
                 <div className='col  d-flex  mt-2 justify-content-around'>
                 <div className='col'>
@@ -178,10 +191,16 @@ if(!usuario){
                 { !perfilUser ? (
                     <h6>Cargando...</h6>
                 ) : (
-                    <h6>Meta: {perfilUser.kcalMeta} Kcal</h6>
+                    <h6  data-tip data-for='calorias'>{perfilUser.kcalMeta} Kcal</h6>
                 )
                 }
-                
+                 
+                    <ReactTooltip 
+                        id='calorias'
+                        place="bottom"
+                        effect="solid">
+                            Calorias que debes consumir
+                    </ReactTooltip>
             </div>
             <div className='col  d-flex  mt-2 justify-content-around'>
             <div className='col'>

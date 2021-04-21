@@ -4,6 +4,7 @@ import { store } from "../firebaseStore"
 import swal from "sweetalert";
 import { Redirect } from "react-router";
 import { DataContext } from "../context/dataContext";
+import ReactTooltip from "react-tooltip";
 
 
 export default function AddAlimento() {
@@ -84,10 +85,17 @@ export default function AddAlimento() {
                             <div className="col-12 mt-3 d-flex justify-content-between">
                             <label className='mt-1'>Cantidad</label>
                             <input type="number" onChange={(e) => { setAlimento({ ...alimento, cantidad: e.target.value }) }} className="form-control alimento-input text-center" placeholder='0' required />
+                        
                             </div>
                             <div className="col-12 mt-3 d-flex justify-content-between">
                             <label className='mt-1'>Unidad</label>
-                            <input type="text" onChange={(e) => { setAlimento({ ...alimento, unidad: e.target.value }) }} className="form-control alimento-input text-center" placeholder='unidad' required />
+                            <input data-tip data-for='unidad' type="text" onChange={(e) => { setAlimento({ ...alimento, unidad: e.target.value }) }} className="form-control alimento-input text-center" placeholder='unidad' required />
+                            <ReactTooltip 
+                        id='unidad'
+                        place="bottom"
+                        effect="solid">
+                           Unidad de medida como: ml - gr - kg - pieza - etc
+                    </ReactTooltip>
                             </div>
                             <div className="col-12 mt-3 d-flex justify-content-between">
                             <label className='mt-1'>Proteinas</label>

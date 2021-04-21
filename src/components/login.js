@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { useContext, useState } from "react";
+import { NavLink, Redirect, useHistory } from "react-router-dom";
 import {auth} from '../firebaseconfig';
 import ReactTooltip from 'react-tooltip';
+import { DataContext } from "../context/dataContext";
 
 export default function Login(){
-    
+    const {usuario} = useContext(DataContext);
     const [user, setUser] = useState({
         email:'',
         pass:''
@@ -28,6 +29,12 @@ export default function Login(){
 
     const dropActive = () =>{
         setDropView(!dropView)
+     }
+
+     if(usuario){
+         return (
+             <Redirect to='/index'/>
+         )
      }
     return(
 

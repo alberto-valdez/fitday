@@ -16,6 +16,7 @@ import { auth } from "./firebaseconfig";
 import Add from "./components/add";
 import Footer from "./components/footer";
 import DoppioInfo from "./components/info/doppio";
+import { ProtectedRoute } from "./protectedRoute";
 
 
 export default function Router(){
@@ -40,14 +41,15 @@ export default function Router(){
             <Route  exact path='/login' component={Login}/>
             <Route  exact path='/infodoppio' component={DoppioInfo}/>
             <Route  exact path='/signup' component={SignUp}/>
-            <Route exact path='/index' component={Index}/>
-            <Route exact path='/crear' component={CreatePerfil}/>
-            <Route exact path='/perfil' component={Perfil}/>
-            <Route exact path='/alimentos' component={Alimentos}/>
-            <Route exact path='/addAlimento' component={AddAlimento}/>
-            <Route exact path='/editarAlimento/:id' component={EditAlimentos}/>
-            <Route exact path='/lista' component={Lista}/>
-            <Route exact path='/lista/add/:id' component={Add}/>
+            <ProtectedRoute exact path='/' component={Index}/>
+            <ProtectedRoute exact path='/index' component={Index}/>
+            <ProtectedRoute exact path='/crear' component={CreatePerfil}/>
+            <ProtectedRoute exact path='/perfil' component={Perfil}/>
+            <ProtectedRoute exact path='/alimentos' component={Alimentos}/>
+            <ProtectedRoute exact path='/addAlimento' component={AddAlimento}/>
+            <ProtectedRoute exact path='/editarAlimento/:id' component={EditAlimentos}/>
+            <ProtectedRoute exact path='/lista' component={Lista}/>
+            <ProtectedRoute exact path='/lista/add/:id' component={Add}/>
         </Switch>
         {usuario ? (
            
