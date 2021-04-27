@@ -17,6 +17,8 @@ import Add from "./components/add";
 import Footer from "./components/footer";
 import DoppioInfo from "./components/info/doppio";
 import { ProtectedRoute } from "./protectedRoute";
+import CalInfo from "./components/info/calculadoraInfo";
+import ListaInfo from "./components/info/listaInfo";
 
 
 export default function Router(){
@@ -50,6 +52,8 @@ export default function Router(){
             <ProtectedRoute exact path='/editarAlimento/:id' component={EditAlimentos}/>
             <ProtectedRoute exact path='/lista' component={Lista}/>
             <ProtectedRoute exact path='/lista/add/:id' component={Add}/>
+            <ProtectedRoute exact path='/info/1' component={CalInfo}/>
+            <ProtectedRoute exact path='/info/2' component={ListaInfo}/>
         </Switch>
         {usuario ? (
            

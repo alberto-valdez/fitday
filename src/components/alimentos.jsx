@@ -57,7 +57,7 @@ const {foodDataList} = useContext(DataContext)
                 </div>
                 <hr/>
                 <div className="d-flex justify-content-center">
-                    <NavLink  to={'/editarAlimento/'+food.id}className='btn '>Seleccionar</NavLink>
+                    <NavLink  to={'/editarAlimento/'+food.id}className='btn '>Editar</NavLink>
                 </div>
             </div>
         </section>
@@ -81,7 +81,7 @@ const {foodDataList} = useContext(DataContext)
                         id='addFood'
                         place="bottom"
                         effect="solid">
-                            Agregar un nuevo alimento
+                             Agregar un nuevo alimento a la base de datos
                     </ReactTooltip>
                 </div>
                 </form>

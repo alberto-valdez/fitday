@@ -36,7 +36,7 @@ export default function Navbar() {
 
     return (
         <div className='col-12'>
-            <nav className='navbar-custom'>
+            <nav className='navbar-custom row'>
                 <a className='navbar-brand-custom'>Doppio</a>
                 <ul>
                     <li>

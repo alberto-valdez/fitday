@@ -56,9 +56,16 @@ export default function Lista(){
                 <p>C: {food.carbohidratos}</p>
                 </div>
                 <hr/>
-                <div className="d-flex justify-content-center">
-                    <NavLink  to={'/lista/add/'+food.id}className='btn '>Seleccionar</NavLink>
+                <div    className="d-flex justify-content-center">
+                    <NavLink data-tip data-for='sel' to={'/lista/add/'+food.id}className='btn '>Seleccionar</NavLink>
+                    <ReactTooltip 
+                        id='sel'
+                        place="bottom"
+                        effect="solid">
+                            Selecciona para agregar a tu menu
+                    </ReactTooltip>
                 </div>
+                
             </div>
         </section>
     )
@@ -81,7 +88,7 @@ export default function Lista(){
                         id='addFood'
                         place="bottom"
                         effect="solid">
-                            Agregar un nuevo alimento
+                            Agregar un nuevo alimento a la base de datos
                     </ReactTooltip>
                 </div>
                 </form>

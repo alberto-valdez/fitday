@@ -10,7 +10,7 @@ export default function Footer(){
                         <h3>Ayuda</h3>
                         <NavLink to='/'>¿Que son las calorias?</NavLink> <br/>
                         <NavLink to='/'>¿Como agrego un alimento?</NavLink> <br/>
-                        <NavLink to='/'>¿Como uso la calculadora?</NavLink>    <br/>                  
+                        <NavLink to='/info/1'>¿Como uso la calculadora?</NavLink>    <br/>                  
                     </div>
                 </div>
                 <div className="col-6 info">
