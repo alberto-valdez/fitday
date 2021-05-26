@@ -91,11 +91,11 @@ export default function AddAlimento() {
                             <label className='mt-1'>Unidad</label>
                             <input data-tip data-for='unidad' type="text" onChange={(e) => { setAlimento({ ...alimento, unidad: e.target.value }) }} className="form-control alimento-input text-center" placeholder='unidad' required />
                             <ReactTooltip 
-                        id='unidad'
-                        place="bottom"
-                        effect="solid">
-                           Unidad de medida como: ml - gr - kg - pieza - etc
-                    </ReactTooltip>
+                                id='unidad'
+                                place="bottom"
+                                effect="solid">
+                                Unidad de medida como: ml - gr - kg - pieza - etc
+                            </ReactTooltip>
                             </div>
                             <div className="col-12 mt-3 d-flex justify-content-between">
                             <label className='mt-1'>Proteinas</label>

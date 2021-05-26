@@ -6,7 +6,7 @@ import { FaCookieBite } from "react-icons/fa";
 export default function ListaInfo() {
     return (
         <div className="row">
-            <div className="col-6">
+            <div className="col-12 col-lg-6">
                 <div className="col-12 d-flex justify-content-center">
                     <div className='card mt-5'>
                         <div className="input-group mb-3 buscador">
@@ -99,7 +99,7 @@ export default function ListaInfo() {
                     </div>
                 </div>
             </div>
-            <div className="col-6">
+            <div className="col-12 col-lg-6">
                 <h1 className='mt-5'>Lista de alimentos </h1>
                 <h3>Puedes ubicarlo por el icono  <IconContext.Provider value={{ size: 20 }}>
                                 <FaCookieBite />

@@ -17,7 +17,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .h-full{
-    height: 70vh;
+    min-height: 70vh;
+}
+
+.h-full-index {
+    min-height: 80vh;
+    height: auto;
 }
 .form-signin{
     padding: 10%;
@@ -189,6 +194,9 @@ background: whitesmoke;
     padding: 50px;
     border: none;
     background: white;
+
+    bottom: 0; 
+   
 }
 .info{
     display: flex;
@@ -274,10 +282,13 @@ animation: shake  5s infinite;
     font-size: 20px;
    
 }
+.h-fix{
+    height: 5vh;
+    margin-bottom: 20px;
+}
 
 .caratula img{
-    padding: 13%;
-   margin-left: 20%;
+   padding-top: 13%;
 }
 .words{
     overflow: hidden;
@@ -330,4 +341,8 @@ animation: shake  5s infinite;
         transform: translateY(-400%);
     }
     
+}
+
+.font-h{
+    font-size: 20px;
 }

@@ -5,9 +5,9 @@ import { FaCalculator } from "react-icons/fa";
 export default function CalInfo(){
     return(
         <div className='row'>
-            <div className="col-6">
-            <div className="row">
-        <div className="col-lg-12   d-flex justify-content-center">
+            <div className="col-lg-6 col-12">
+            <div className="row  h-full">
+        <div className="col-lg-12  h-full  d-flex justify-content-center">
             <div className="card mt-5 ">
             <div className='col  d-flex  mt-5 justify-content-around'>
                 <p className='fecha-index' data-tip data-for='fcha'>13 Diciembre 2016</p>
@@ -19,7 +19,7 @@ export default function CalInfo(){
                     </ReactTooltip>
             </div>
             <hr/>
-            <div className='col  d-flex  mt-1 justify-content-center'>
+            <div className='col  d-flex  mt-1 mb-5 justify-content-center'>
 
                 
                     <h6  data-tip data-for='calorias'>2000 Kcal</h6>
@@ -79,7 +79,7 @@ export default function CalInfo(){
                     </ReactTooltip>
             </div>
             </div>
-            <div className='buscador'>
+            <div className='buscador  mt-3'>
             <div className="food-list">
                 <div data-tip data-for='info5'  className='d-flex justify-content-center'>
                 <p className='text-uppercase mt-3 foodName'>No hay alimentos en este menu</p>
@@ -113,7 +113,7 @@ export default function CalInfo(){
         </div>
             </div>
 
-            <div className="col-6">
+            <div className="col-lg-6 col-12">
             <h1 className='mt-5'>Menú</h1>    
                      
             <h3>Puedes ubirarlo por el icono <IconContext.Provider value={{ size: 20 }}>

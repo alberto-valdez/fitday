@@ -12,7 +12,8 @@ export default function Welcome(){
         )
     }
     return(
-        <div className="row">
+        <div className="row ">
+            
             <div className="col-12 d-flex justify-content-center mt-5">
             <h1>Bienvenido a</h1>
             
@@ -24,11 +25,11 @@ export default function Welcome(){
 
             <div className="col-12 d-flex justify-content-center  mt-5">
           
-          <h3>La aplicación que te permite llevar un control de lo que comes.</h3>
+          <label className='p-5 font-h'>La aplicación que te permite llevar un control de lo que comes.</label>
           </div>        
 
           <div className="col-12 d-flex justify-content-center">
-          <h3>¡Crea un perfil para poder a empezar a usar la herramienta que te ayudará a conseguir tus metas alimenticias!</h3>
+          <label className='p-5 font-h'>¡Crea un perfil para poder a empezar a usar la herramienta que te ayudará a conseguir tus metas alimenticias!</label>
           </div>      
 
           <div className="col-12 d-flex justify-content-center  mt-5">

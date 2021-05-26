@@ -107,17 +107,17 @@ if(!usuario){
         )
     })
 
-    return( <div>
+    return( <div className=' h-full-index mb-2 '>
 
-        <div className="row">
+        <div className="row mb-5 h-full">
             <div className="col-lg-12 d-flex justify-content-center">
-                <div className="card mt-5 ">
+                <div className="card mt-5 mb-1 pb-3">
                 <div className='col  d-flex  mt-5 justify-content-around'>
                     <p className='fecha-index'>{fechaMenu}</p>
                    
                 </div>
                 <hr/>
-                <div className='col  d-flex  mt-1 justify-content-center'>
+                <div className='col  d-flex  mt-1 justify-content-center mb-5'>
                 { !perfilUser ? (
                     <h6>Cargando...</h6>
                 ) : (
@@ -155,16 +155,16 @@ if(!usuario){
                     <p className='text-center'>Kcal</p>
                 </div>
                 </div>
-                <div className='buscador'>
-                <div className="box-food overflow-auto">
+                <div className='buscador mt-3 '>
+                <div className="box-food overflow-auto mb-3">
                     {foodMap}
               
                 </div>
                 </div>
     
-                <div className='col mt-3  d-flex justify-content-center btn-alimentos'>
+                <div className='col mt-3 mb-3 pb-3  d-flex justify-content-center btn-alimentos h-fix'>
                 
-                <NavLink className='btn btn-dark btn-block ' to='/lista'>Agregar</NavLink>
+                <NavLink className='btn btn-dark btn-block mb-2 h-fix' to='/lista'>Agregar Alimento</NavLink>
                 </div>
                 </div>
             </div>
@@ -176,9 +176,9 @@ if(!usuario){
 } else if(!foodData){
 
     return(
-    <div>
+    <div className=' h-full-index  mb-5'>
 
-    <div className="row">
+    <div className="row  h-full">
         <div className="col-lg-12   d-flex justify-content-center">
             <div className="card mt-5 ">
             <div className='col  d-flex  mt-5 justify-content-around'>
@@ -186,7 +186,7 @@ if(!usuario){
                
             </div>
             <hr/>
-            <div className='col  d-flex  mt-1 justify-content-center'>
+            <div className='col  d-flex  mt-1 justify-content-center mb-5'>
 
                 { !perfilUser ? (
                     <h6>Cargando...</h6>
@@ -228,13 +228,13 @@ if(!usuario){
                         id='kcal'
                         place="bottom"
                         effect="solid">
-                            Calorias que haz consumido
+                            Calorias que has consumido
                     </ReactTooltip>
             </div>
-            <div className='buscador'>
+            <div className='buscador mt-3'>
             <div className="food-list">
                 <div className='d-flex justify-content-center'>
-                <p className='text-uppercase mt-3 foodName'>No hay alimentos en este menu</p>
+                <label className='text-uppercase mt-3 foodName'>No hay alimentos en este menu</label>
             
                 </div>
             
@@ -244,7 +244,7 @@ if(!usuario){
 
             <div className='col mt-3  d-flex justify-content-center btn-alimentos'>
             
-            <NavLink className='btn btn-dark btn-block ' to='/lista'>Agregar</NavLink>
+            <NavLink className='btn btn-dark btn-block mb-3 ' to='/lista'>Agregar Alimento</NavLink>
             </div>
             </div>
         </div>

@@ -4,11 +4,11 @@ import caratula from '../../assets/img/d.png'
 export default function DoppioInfo(){
     return(
         <div className="row">
-            <div className="col-4 d-flex justify-content-center caratula">
-                <img src= {caratula} alt=""/>
+            <div className="col-12 col-lg-4 d-flex justify-content-center caratula hidden-div">
+                <img src= {caratula} className='img-fluid' alt=""/>
             </div>
 
-            <div className="col-8">
+            <div className="col-12 col-lg-8">
                 <div className="col-12 info-dop">
                 <h1>¡Cuenta calorias!</h1>
                 <h2>¡Consigue tus metas!</h2>

@@ -19,8 +19,7 @@ export default function Login(){
         auth.signInWithEmailAndPassword(user.email, user.pass).then(res=>{
            historial.push('/index'); 
         }).catch(err=>{
-         
-            if(err.code == 'auth/wrong-password' || err.code == 'user-not-found' ){
+            if(err.code == 'auth/wrong-password' || err.code == 'auth/user-not-found' ){
                 setMsgError('Usuario o contraseña incorrecto')
             }
         })
@@ -55,8 +54,8 @@ export default function Login(){
        
         <div className='container h-full'>
             
-            <div className='row d-flex justify-content-center pt-5 mt-5 mr-1 '>
-                <div className='col-lg-6 col-8 card'>
+            <div className='row d-flex justify-content-center pt-5 mt-5  '>
+                <div className='col-lg-6 col-12  card'>
                     <div className='buscador login-arreglos'>
 
             

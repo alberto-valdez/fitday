@@ -59,8 +59,8 @@ export default function SignUp(){
        
         </div>
         <div className='container h-full'>
-        <div className='row d-flex justify-content-center pt-5 mt-5 mr-1'>
-            <div className='col-lg-6 col-8 card'>
+        <div className='row d-flex justify-content-center pt-5 mt-5 '>
+            <div className='col-lg-6 col-12 card'>
             <div className='buscador login-arreglos'>
                 <h2 className='text-center'>Registro</h2>
                 <form onSubmit={registrar}>

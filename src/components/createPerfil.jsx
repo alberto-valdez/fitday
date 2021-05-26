@@ -126,7 +126,7 @@ export default function CreatePerfil() {
             <div className='container'>
     
                 <div className="row d-flex justify-content-center mt-5">
-                    <div className="col-8 card">
+                    <div className="col-12 col-lg-8 card">
                            
                             
                         <form onSubmit={savePerfil}>
@@ -145,7 +145,8 @@ export default function CreatePerfil() {
                             </div>
                             <div className="col-12 d-flex justify-content-between mb-3">
                             <label className='mt-2'>Estatura</label>
-                            <input defaultValue={perfil.estatura} data-tip data-for='estatura' type="number" onChange={(e)=>{setPerfil({...perfil, estatura: e.target.value})}} className="form-control alimento-input-name" placeholder='' required />
+                            <input defaultValue={perfil.estatura} data-tip data-for='estatura' type="number" onChange={(e)=>{setPerfil({...perfil, estatura: e.target.value})}} className="form-control alimento-input-name" placeholder='Centimetros' required />
+                           
                             <ReactTooltip 
                         id='estatura'
                         place="bottom"
@@ -156,7 +157,8 @@ export default function CreatePerfil() {
                             
                             <div className="col-12 d-flex justify-content-between mb-3">
                             <label className='mt-2'>Peso</label>
-                            <input defaultValue={perfil.peso} type="number" data-tip data-for='peso' onChange={(e)=>{setPerfil({...perfil, peso: e.target.value})}} className="form-control alimento-input-name" placeholder='' required />
+                            <input defaultValue={perfil.peso} type="number" data-tip data-for='peso' onChange={(e)=>{setPerfil({...perfil, peso: e.target.value})}} className="form-control alimento-input-name " placeholder='Kilogramos' required />
+                         
                             <ReactTooltip 
                                 id='peso'
                                 place="bottom"
