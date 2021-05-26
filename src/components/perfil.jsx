@@ -1,12 +1,11 @@
 import { useContext, useEffect, useState } from "react"
 import { NavLink } from "react-router-dom";
 import { DataContext } from "../context/dataContext"
-import { store } from "../firebaseStore";
 import Cargando from "./cargando";
-
+import icon from '../assets/img/hearthicon.jpeg'
 export default function Perfil (){
 
-    const {id, perfilUser} = useContext(DataContext);
+    const {perfilUser} = useContext(DataContext);
     const [objetivo, setObjetivo] = useState('')
    
     useEffect(()=>{
@@ -33,7 +32,7 @@ export default function Perfil (){
                 <div className="col-12  d-flex justify-content-center">
                     <div className="card mt-5">
             <div className="col d-flex justify-content-center mt-5">
-            <img className='  d-flex justify-content-center' src="https://media.istockphoto.com/vectors/hamburger-junk-food-icon-vector-id928415518?b=1&k=6&m=928415518&s=612x612&w=0&h=Hjy-pIAjI9aOJE_2ir8n_Ssq-BZ5DdUQoe74OSjyeKI=" alt=""/>
+            <img className='  d-flex justify-content-center' src={icon} alt="icon"/>
             </div>
                        
                         <div className="card-body text-center">

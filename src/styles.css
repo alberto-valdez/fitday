@@ -10,9 +10,15 @@ body{
     overflow-x: hidden;
 }
 html { overflow-x: hidden; }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 
-
-
+.h-full{
+    height: 70vh;
+}
 .form-signin{
     padding: 10%;
     background: rgb(210, 235, 255);

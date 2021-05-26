@@ -19,10 +19,13 @@ export default function Navbar() {
         dangerMode: true,
     }).then((willDelete)=>{
         if(willDelete){
-            setId(null)
+          
+            window.localStorage.removeItem('perfilUser');
+            setId(null);
             auth.signOut();
-    
-            history.push('/login')
+            window.localStorage.removeItem('menu');
+            window.localStorage.removeItem('menuCollection');
+            history.push('/login');
          
         } else {
             swal('Se canceló la acción')

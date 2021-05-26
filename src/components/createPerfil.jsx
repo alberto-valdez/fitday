@@ -6,6 +6,7 @@ import Cargando from "./cargando";
 import { Redirect } from "react-router";
 
 import swal from "sweetalert";
+import ReactTooltip from "react-tooltip";
 export default function CreatePerfil() {
   
     const [perfil, setPerfil] = useState({
@@ -32,13 +33,11 @@ export default function CreatePerfil() {
         if(activdad){
           
             let peso = 10 * parseFloat(perfil.peso);
-            let altura = 2.25 * parseFloat(perfil.estatura);
+            let altura = 6.25 * parseFloat(perfil.estatura);
             let edad = 5 * parseFloat(perfil.edad);
-            console.log(peso + ' ' + altura + ' ' + edad)
-
                 if(perfil.sexo == 'Hombre'){
                 let TMB = peso + altura - edad + 5;
-                let gastoBasalFloat = (TMB * parseFloat(activdad)) + 300;
+                let gastoBasalFloat = (TMB * parseFloat(activdad));
                 let gastoBasal = Math.floor(gastoBasalFloat);
                
                 
@@ -58,7 +57,7 @@ export default function CreatePerfil() {
                 } else {
 
                 let TMB = peso + altura - edad - 161;
-                let gastoBasalFloat = (TMB * parseFloat(activdad)) + 180;
+                let gastoBasalFloat = (TMB * parseFloat(activdad));
                 let gastoBasal = Math.floor(gastoBasalFloat);
 
                     if(perfil.meta == '1'){
@@ -128,9 +127,13 @@ export default function CreatePerfil() {
     
                 <div className="row d-flex justify-content-center mt-5">
                     <div className="col-8 card">
+                           
+                            
                         <form onSubmit={savePerfil}>
                             <div className='row buscador login-arreglos' >
-    
+                            <div className="col-12 d-flex justify-content-center mb-3">
+                            <h3 className='text-center'>Crear Perfil</h3>
+                                </div>
                             <div className="col-12 d-flex justify-content-between mb-3">
                             <label className='mt-2'>Nombre</label>
                             <input defaultValue={perfil.nombre} type="text" onChange={(e)=>{setPerfil({...perfil, nombre: e.target.value})}}  className="form-control alimento-input-name" placeholder='' required />
@@ -138,20 +141,33 @@ export default function CreatePerfil() {
 
                             <div className="col-12 d-flex justify-content-between mb-3">
                             <label className='mt-2'>Edad</label>
-                            <input defaultValue={perfil.edad} type="text"  onChange={(e)=>{setPerfil({...perfil, edad: e.target.value})}}  className="form-control alimento-input-name" placeholder='' required />
+                            <input defaultValue={perfil.edad} type="number"  onChange={(e)=>{setPerfil({...perfil, edad: e.target.value})}}  className="form-control alimento-input-name" placeholder='' required />
                             </div>
                             <div className="col-12 d-flex justify-content-between mb-3">
                             <label className='mt-2'>Estatura</label>
-                            <input defaultValue={perfil.estatura} type="text" onChange={(e)=>{setPerfil({...perfil, estatura: e.target.value})}} className="form-control alimento-input-name" placeholder='' required />
+                            <input defaultValue={perfil.estatura} data-tip data-for='estatura' type="number" onChange={(e)=>{setPerfil({...perfil, estatura: e.target.value})}} className="form-control alimento-input-name" placeholder='' required />
+                            <ReactTooltip 
+                        id='estatura'
+                        place="bottom"
+                        effect="solid">
+                            Estatura en centimetros ejemplo: 170
+                    </ReactTooltip>
                             </div>
+                            
                             <div className="col-12 d-flex justify-content-between mb-3">
                             <label className='mt-2'>Peso</label>
-                            <input defaultValue={perfil.peso} type="text" onChange={(e)=>{setPerfil({...perfil, peso: e.target.value})}} className="form-control alimento-input-name" placeholder='' required />
+                            <input defaultValue={perfil.peso} type="number" data-tip data-for='peso' onChange={(e)=>{setPerfil({...perfil, peso: e.target.value})}} className="form-control alimento-input-name" placeholder='' required />
+                            <ReactTooltip 
+                                id='peso'
+                                place="bottom"
+                                effect="solid">
+                                   Peso en kilogramos
+                            </ReactTooltip>
                             </div>
                           
                             <div className="input-group mb-3">
                            <select  className='form-control alimento-input' id="inputGroupSelect01" defaultValue={null} onChange={(e)=>{setPerfil({...perfil, sexo: e.target.value})}} required >
-                              <option value={null} selected disabled>Seelecciona tu sexo biologico</option>
+                              <option value={null} selected disabled>Selecciona tu sexo biologico</option>
                               <option value='Hombre'>Hombre</option>
                               <option value='Mujer'>Mujer</option>
                           </select>
@@ -179,12 +195,20 @@ export default function CreatePerfil() {
                               <option value='1.9'>2 veces al día</option>
     
                           </select>
+
+                          <div className="col-12 d-flex justify-content-center mt-3">
+                            <p className='text-center'>Calorías que debes consumir</p>
+                                </div>
+                                <div className="col-12 d-flex justify-content-center mt-3">
+                            <p className='text-center'>{perfil.kcalMeta !== ''  ? ( perfil.kcalMeta ) : (0)}</p>
+                                </div>
                             </div>
+                            
                                                 
                             { !perfilUser ? (
-                                <button type='submit' className='btn btn-dark btn-block'>Crear Usuario</button>
+                                <button type='submit' className='btn btn-dark btn-block'>Crear Perfil</button>
                             ): (
-                                <button onClick={updatePerfil} className='btn btn-dark btn-block'>Editar Usuario</button>
+                                <button onClick={updatePerfil} className='btn btn-dark btn-block'>Editar Perfil</button>
                             )
 
                             }

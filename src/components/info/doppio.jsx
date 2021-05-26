@@ -34,7 +34,7 @@ export default function DoppioInfo(){
                 </div>
 
                 <div className="col-12 d-flex justify-content-center mt-5">
-                 <NavLink to='/signup' className='btn btn-dark text-center'>COMENSAR AHORA</NavLink>
+                 <NavLink to='/signup' className='btn btn-dark text-center'>COMENZAR AHORA</NavLink>
                 </div>
             </div>
         </div>

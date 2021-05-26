@@ -35,7 +35,6 @@ const {foodDataList} = useContext(DataContext)
             
             return food
         } else if(food.nombre.toLowerCase().includes(searchData.toLowerCase())){
-            console.log(food)
             return food
         }
     }).map((food, i = foodDataList.id)=>{

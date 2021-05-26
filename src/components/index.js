@@ -219,11 +219,17 @@ if(!usuario){
                 <p className='text-center'>Grasas</p>
             </div>
 
-            <div className='col'>
+            <div className='col' data-tip data-for='kcal'>
                 <p className='text-center'>0</p>
                  <hr/>
                 <p className='text-center'>Kcal</p>
             </div>
+            <ReactTooltip 
+                        id='kcal'
+                        place="bottom"
+                        effect="solid">
+                            Calorias que haz consumido
+                    </ReactTooltip>
             </div>
             <div className='buscador'>
             <div className="food-list">

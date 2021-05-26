@@ -32,13 +32,12 @@ export default function Lista(){
   
     const foodMap = foodDataList.filter((food) =>{
         if(searchData == ''){
-            
             return food
         } else if(food.nombre.toLowerCase().includes(searchData.toLowerCase())){
-            console.log(food)
             return food
         }
     }).map((food, i = foodDataList.id)=>{
+    
     return (    
             <section key={i} className='mt-2'>
             <div className="food-list">

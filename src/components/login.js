@@ -5,7 +5,7 @@ import ReactTooltip from 'react-tooltip';
 import { DataContext } from "../context/dataContext";
 
 export default function Login(){
-    const {usuario} = useContext(DataContext);
+    const {usuario,perfilUser} = useContext(DataContext);
     const [user, setUser] = useState({
         email:'',
         pass:''
@@ -31,14 +31,14 @@ export default function Login(){
         setDropView(!dropView)
      }
 
-     if(usuario){
-         return (
-             <Redirect to='/index'/>
-         )
-     }
+
+
+    
+     
+     
     return(
 
-        <>
+        <div>
          <div className='col-12'>
             <nav className='navbar-custom'>
                         <NavLink to='/infodoppio' data-tip data-for='tooltip' className=' shakeLogo navbar-brand-custom' >
@@ -53,9 +53,9 @@ export default function Login(){
             </nav>
         </div>
        
-        <div className='container'>
+        <div className='container h-full'>
             
-            <div className='row d-flex justify-content-center pt-5 mt-5 mr-1'>
+            <div className='row d-flex justify-content-center pt-5 mt-5 mr-1 '>
                 <div className='col-lg-6 col-8 card'>
                     <div className='buscador login-arreglos'>
 
@@ -93,21 +93,7 @@ export default function Login(){
             
         </div>
 
-        <div className='col-12'>
-
-            <footer className='row footerinfo '>
-            
-                <div className="col-12 info">
-                    <div className="info-desc">
-                        <h3 className='text-center'>Información del desarrollador</h3>
-                        <p className='text-center'>albertovaldez.dev@gmail.com</p>
-                        <p className='text-center'>https://github.com/alberto-valdez</p>
-                    </div>
-                    
-                </div>
-            </footer>
-
+    
         </div>
-        </>
     )
 }

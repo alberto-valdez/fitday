@@ -103,7 +103,7 @@ export default function ListaInfo() {
                 <h1 className='mt-5'>Lista de alimentos </h1>
                 <h3>Puedes ubicarlo por el icono  <IconContext.Provider value={{ size: 20 }}>
                                 <FaCookieBite />
-                            </IconContext.Provider> ubicado en la barra superior.  En uestra lista de alimentos podrás editar y agregar nuevos alimentos</h3>
+                            </IconContext.Provider> ubicado en la barra superior.  En nuestra lista de alimentos podrás editar y agregar nuevos alimentos</h3>
                 <h5 className='mt-3'>los alimentos que agregues o edites podrá ser usado por otros usuarios. </h5>
                 <NavLink to='/index' className='btn btn-dark  mt-5'>Empezar</NavLink>
             </div>

@@ -4,22 +4,14 @@ export default function Footer(){
     return(
         <div className='col-12'>
 
-            <footer className='row footerinfo '>
-                <div className="col-6 info">
-                    <div className="info-desc">
+            <footer className='row footerinfo d-flex justify-content-center'>
+                <div className="col-lg-6 col-xs-12 info ">
+                    <div className="info-desc text-center">
                         <h3>Ayuda</h3>
-                        <NavLink to='/'>¿Que son las calorias?</NavLink> <br/>
-                        <NavLink to='/'>¿Como agrego un alimento?</NavLink> <br/>
+                        <NavLink to='/info/kcal'>¿Que son las calorias?</NavLink> <br/>
+                        <NavLink to='/info/macros'>¿Que son los macronutrientes?</NavLink> <br/>
                         <NavLink to='/info/1'>¿Como uso la calculadora?</NavLink>    <br/>                  
                     </div>
-                </div>
-                <div className="col-6 info">
-                    <div className="info-desc">
-                        <h3>Información del desarrollador</h3>
-                        <p>albertovaldez.dev@gmail.com</p>
-                        <p>https://github.com/alberto-valdez</p>
-                    </div>
-                    
                 </div>
             </footer>
 
